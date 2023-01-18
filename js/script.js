@@ -56,7 +56,6 @@ const posts = [
     }
 
 ];
-// console.log(posts);
 
 /*-------------------------------------CREAZIONE POSTS-------------------------------------*/
 
@@ -98,19 +97,6 @@ for (let index = 0; index < posts.length; index++) {
 
 };
 
-/*----------------------------------NUOVI ARRAY PER LIKE E LIKE-COUNTER----------------------------------*/
-
-const costantePerId = posts.map((myElement) => {
-    const serieDiId = myElement.id;
-    return serieDiId
-});
-
-const costantePerLikes = posts.map((myElement) => {
-    const serieDiLikes = myElement.likes;
-    return serieDiLikes
-});
-console.log(costantePerLikes);
-
 const myLikeButton = document.querySelectorAll('.like-button');
 
 const myLikeCounter = document.querySelectorAll('.js-likes-counter');
@@ -121,7 +107,7 @@ let myLikedPosts = [];
 
 /*---------------------------------------------------------------------*/
 
-for (let index = 0; index < costantePerId.length; index++) {
+for (let index = 0; index < posts.length; index++) {
     
     myLikeButton[index].addEventListener('click',
     
@@ -135,16 +121,16 @@ for (let index = 0; index < costantePerId.length; index++) {
             notLiked[index].classList.add('hidden');
             liked[index].classList.remove('hidden');
             likedText[index].innerHTML = 'You liked this post';        
-            myLikeCounter[index].innerHTML = costantePerLikes[index] + 1;
-            myLikedPosts.push(costantePerId[index]);
+            myLikeCounter[index].innerHTML = posts[index].likes + 1;
+            myLikedPosts.push(posts[index].id);
             console.log('Id post a cui ho messo like ' + myLikedPosts);
         }
         else{
             notLiked[index].classList.remove('hidden');
             liked[index].classList.add('hidden');
             likedText[index].innerHTML = 'Like!';
-            myLikeCounter[index].innerHTML = costantePerLikes[index];
-            myLikedPosts.pop(costantePerId[index]);
+            myLikeCounter[index].innerHTML = posts[index].likes;
+            myLikedPosts.pop(posts[index].id);
         }
 
         console.log(myLikedPosts);
