@@ -67,7 +67,7 @@ for (let index = 0; index < posts.length; index++) {
                 <div class="post__header">
                     <div class="post-meta">                    
                         <div class="post-meta__icon">
-                            <img class="profile-pic" src="${posts[index].author.image}" alt="Phil Mangione">                    
+                            <img class="profile-pic" src="${posts[index].author.image}" alt="${posts[index].author.name}">                    
                         </div>
                         <div class="post-meta__data">
                             <div class="post-meta__author">${posts[index].author.name}</div>
