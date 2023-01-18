@@ -58,6 +58,8 @@ const posts = [
 ];
 console.log(posts);
 
+/*-------------------------------------CREAZIONE POSTS-------------------------------------*/
+
 for (let index = 0; index < posts.length; index++) {
     const myPostList = document.querySelector('.posts-list');
 
@@ -96,8 +98,7 @@ for (let index = 0; index < posts.length; index++) {
 
 };
 
-const myLikeButton = document.querySelectorAll('.like-button');
-console.log(myLikeButton);
+/*----------------------------------NUOVI ARRAY PER LIKE E LIKE-COUNTER----------------------------------*/
 
 const costantePerId = posts.map((myElement) => {
     const serieDiId = myElement.id;
@@ -109,6 +110,12 @@ let costantePerLikes = posts.map((myElement) => {
     return serieDiLikes
 });
 console.log(costantePerLikes);
+
+const myLikeButton = document.querySelectorAll('.like-button');
+console.log(myLikeButton);
+
+const myLikeCounter = document.querySelectorAll('.js-likes-counter');
+
 
 for (let index = 0; index < costantePerId.length; index++) {
     
@@ -123,6 +130,8 @@ for (let index = 0; index < costantePerId.length; index++) {
         liked[index].classList.remove('hidden');
         likedText[index].innerHTML = 'You liked this post';
         
+        myLikeCounter[index].innerHTML = costantePerLikes[index] + 1;
+        console.log(costantePerLikes[index] + 1);
     }
     );
 };
