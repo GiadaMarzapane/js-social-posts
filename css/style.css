@@ -91,10 +91,14 @@ h1 {
 
 .post__image {
     margin-bottom: 16px;
+    text-align: center;
 }
 
 .post__image img {
-    width: 100%;
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .likes {
