@@ -112,18 +112,18 @@ let costantePerLikes = posts.map((myElement) => {
 console.log(costantePerLikes);
 
 const myLikeButton = document.querySelectorAll('.like-button');
-console.log(myLikeButton);
 
 const myLikeCounter = document.querySelectorAll('.js-likes-counter');
 
+let myLikedPosts = [];
 
 for (let index = 0; index < costantePerId.length; index++) {
     
     myLikeButton[index].addEventListener('click',
-       
+    
     function () {
         console.log('click like su post n° ' + posts[index].id);
-
+        
         const notLiked = document.querySelectorAll('i.fa-regular');
         const liked = document.querySelectorAll('i.fa-solid');
         const likedText = document.querySelectorAll('.like-button__label');
@@ -132,15 +132,18 @@ for (let index = 0; index < costantePerId.length; index++) {
             liked[index].classList.remove('hidden');
             likedText[index].innerHTML = 'You liked this post';        
             myLikeCounter[index].innerHTML = costantePerLikes[index] + 1;
+            myLikedPosts.push(costantePerId[index]);
+            console.log('Id post a cui ho messo like ' + myLikedPosts);
         }
         else{
             notLiked[index].classList.remove('hidden');
             liked[index].classList.add('hidden');
             likedText[index].innerHTML = 'Like!';
             myLikeCounter[index].innerHTML = costantePerLikes[index];
+            myLikedPosts.pop(costantePerId[index]);
         }
 
-        console.log(costantePerLikes[index] + 1);
+        console.log(myLikedPosts);
     }
     );
 };
