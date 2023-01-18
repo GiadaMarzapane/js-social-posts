@@ -123,14 +123,23 @@ for (let index = 0; index < costantePerId.length; index++) {
        
     function () {
         console.log('click like su post n° ' + posts[index].id);
+
         const notLiked = document.querySelectorAll('i.fa-regular');
         const liked = document.querySelectorAll('i.fa-solid');
         const likedText = document.querySelectorAll('.like-button__label');
-        notLiked[index].classList.add('hidden');
-        liked[index].classList.remove('hidden');
-        likedText[index].innerHTML = 'You liked this post';
-        
-        myLikeCounter[index].innerHTML = costantePerLikes[index] + 1;
+        if (notLiked[index].className.includes('hidden') == false) {            
+            notLiked[index].classList.add('hidden');
+            liked[index].classList.remove('hidden');
+            likedText[index].innerHTML = 'You liked this post';        
+            myLikeCounter[index].innerHTML = costantePerLikes[index] + 1;
+        }
+        else{
+            notLiked[index].classList.remove('hidden');
+            liked[index].classList.add('hidden');
+            likedText[index].innerHTML = 'Like!';
+            myLikeCounter[index].innerHTML = costantePerLikes[index];
+        }
+
         console.log(costantePerLikes[index] + 1);
     }
     );
