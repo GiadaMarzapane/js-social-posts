@@ -95,7 +95,7 @@ h1 {
 }
 
 .post__image img {
-    width: 500px;
+    width: 100%;
     height: 500px;
     object-fit: cover;
     object-position: center;
@@ -116,7 +116,20 @@ h1 {
 }
 
 .like-button:not(.like-button--liked):hover {
-    background-color: #e3e3e3
+    background-color: #e3e3e3;
+    cursor: pointer;
+}
+
+.fa-solid.fa-heart{
+    color: red;
+}
+
+.fa-solid.fa-heart.hidden{
+    display: none;
+}
+
+.fa-regular.fa-heart.hidden {
+    display: none;
 }
 
 .like-button__label {

@@ -80,16 +80,49 @@ for (let index = 0; index < posts.length; index++) {
                 <div class="post__footer">
                     <div class="likes js-likes">
                         <div class="likes__cta">
-                            <a class="like-button  js-like-button" href="#" data-postid="1">
-                                <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
+                            <div class="like-button  js-like-button" data-postid="${posts[index].id}">
+                                <i class="fa-regular fa-heart"></i>
+                                <i class="fa-solid fa-heart hidden"></i>                                
                                 <span class="like-button__label">Like!</span>
-                            </a>
+                            </div>
                         </div>
                         <div class="likes__counter">
-                            Piace a <b id="like-counter-1" class="js-likes-counter">${posts[index].likes}</b> persone
+                            Piace a <b id="like-counter-${posts[index].id}" class="js-likes-counter">${posts[index].likes}</b> persone
                         </div>
                     </div> 
                 </div>            
             </div>`;
     myPostList.innerHTML += newPost;
-}
+
+};
+
+const myLikeButton = document.querySelectorAll('.like-button');
+console.log(myLikeButton);
+
+const costantePerId = posts.map((myElement) => {
+    const serieDiId = myElement.id;
+    return serieDiId
+});
+
+let costantePerLikes = posts.map((myElement) => {
+    const serieDiLikes = myElement.likes;
+    return serieDiLikes
+});
+console.log(costantePerLikes);
+
+for (let index = 0; index < costantePerId.length; index++) {
+    
+    myLikeButton[index].addEventListener('click',
+       
+    function () {
+        console.log('click like su post n° ' + posts[index].id);
+        const notLiked = document.querySelectorAll('i.fa-regular');
+        const liked = document.querySelectorAll('i.fa-solid');
+        const likedText = document.querySelectorAll('.like-button__label');
+        notLiked[index].classList.add('hidden');
+        liked[index].classList.remove('hidden');
+        likedText[index].innerHTML = 'You liked this post';
+        
+    }
+    );
+};
