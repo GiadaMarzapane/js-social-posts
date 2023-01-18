@@ -56,7 +56,7 @@ const posts = [
     }
 
 ];
-console.log(posts);
+// console.log(posts);
 
 /*-------------------------------------CREAZIONE POSTS-------------------------------------*/
 
@@ -105,7 +105,7 @@ const costantePerId = posts.map((myElement) => {
     return serieDiId
 });
 
-let costantePerLikes = posts.map((myElement) => {
+const costantePerLikes = posts.map((myElement) => {
     const serieDiLikes = myElement.likes;
     return serieDiLikes
 });
@@ -115,7 +115,11 @@ const myLikeButton = document.querySelectorAll('.like-button');
 
 const myLikeCounter = document.querySelectorAll('.js-likes-counter');
 
+/*----------------------------------COSTANTE PER SALVARE I POST A CUI HO MESSO LIKE----------------------------------*/
+
 let myLikedPosts = [];
+
+/*---------------------------------------------------------------------*/
 
 for (let index = 0; index < costantePerId.length; index++) {
     
